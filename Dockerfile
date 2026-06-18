@@ -18,4 +18,4 @@ COPY --from=builder /app/dist ./dist
 
 EXPOSE 5173
 
-CMD ["serve", "-s", "dist", "-l", "5173"]
+CMD ["serve", "-s", "dist", "-l", "5173", "--single"]
