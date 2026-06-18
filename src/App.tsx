@@ -19,6 +19,7 @@ function App() {
                 Create container, run the image, stop and remove the container
                 in local
               </li>
+              <li>Build and Push Docker Images with GitHub Actions</li>
             </ul>
           </div>
         </div>
