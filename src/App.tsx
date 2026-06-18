@@ -19,11 +19,14 @@ function App() {
                 Create container, run the image, stop and remove the image in
                 local
               </li>
-              <li>Build and Push Docker Images with GitHub Actions</li>
+              <li>
+                Automated the Build and Push Docker Images to Docker Hub
+                activity with GitHub Actions
+              </li>
               <li>
                 Implemented an automated CI/CD pipeline that triggers builds and
-                deployments whenever code changes are pushed to the main/source
-                branch.
+                deployments to Github pages whenever code changes are pushed to
+                the main/source branch.
               </li>
             </ul>
           </div>
