@@ -1,0 +1,13 @@
+name: Build and publish the images to Docker Hub
+on: [workflow_dispatch]
+
+jobs:
+  publish_images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: build image
+        run: docker build -t prakashtm456/learn-docker:latest
+      - name: push image to docker hub
+        run: docker push prakashtm456/learn-docker:latest
