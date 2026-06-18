@@ -14,8 +14,8 @@ WORKDIR /app
 
 RUN npm install -g serve
 
-COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/dist ./dist/Creating_Docker_Images_For_React_App-vite-
 
 EXPOSE 5173
 
-CMD ["serve", "dist", "-l", "5173", "--single", "--base", "/Creating_Docker_Images_For_React_App-vite-/"]
+CMD ["serve", "dist", "-l", "5173", "--single"]
