@@ -14,6 +14,6 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: build image
-        run: docker build -t prakashtm456/learn-docker:latest .
+        run: docker build -t prakashtm456/learn-docker:react-app-latest .
       - name: push image to docker hub
         run: docker push prakashtm456/learn-docker:react-app-latest
