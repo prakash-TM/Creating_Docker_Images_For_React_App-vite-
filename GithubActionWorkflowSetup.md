@@ -162,16 +162,64 @@ This is the name displayed in the GitHub Actions tab.
 
 ---
 
-## 2. Manual Trigger
+## 2. Triggers
+
+### Manual Trigger
 
 ```yaml
-on:
-  workflow_dispatch:
+on: [workflow_dispatch]
 ```
 
 This allows the workflow to be started manually from GitHub Actions.
 
 Without clicking **Run Workflow**, nothing will happen.
+
+---
+
+### Auto Trigger — Any change pushed to `main`
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+```
+
+Automatically runs the workflow whenever code is pushed or merged into the `main` branch.
+
+---
+
+### Auto Trigger — Specific files or folders only
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**" # triggers if anything inside src/ changes
+      - "Dockerfile" # triggers if Dockerfile changes
+```
+
+Only runs the workflow when the specified files or folders are modified.
+Pushes that only change `README.md`, docs, or other unrelated files will be **ignored**.
+
+---
+
+### Combined — Manual + Auto
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "Dockerfile"
+  workflow_dispatch:
+```
+
+Runs automatically on relevant changes **and** can still be triggered manually anytime.
 
 ---
 
