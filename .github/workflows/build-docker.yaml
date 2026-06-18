@@ -10,4 +10,5 @@ jobs:
       - name: build image
         run: docker build -t prakashtm456/learn-docker:latest
       - name: push image to docker hub
-        run: docker push prakashtm456/learn-docker:latest
+        run: docker login -u prakashtm456 -p ${{ secrets.DOCKER_HUB_TOKEN }}
+          docker push prakashtm456/learn-docker:latest
