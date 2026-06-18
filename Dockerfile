@@ -18,4 +18,4 @@ COPY --from=builder /app/dist ./dist
 
 EXPOSE 5173
 
-CMD ["serve", "-s", "dist", "-l", "5173", "--single"]
+CMD ["serve", "dist", "-l", "5173", "--single", "--base", "/Creating_Docker_Images_For_React_App-vite-/"]
