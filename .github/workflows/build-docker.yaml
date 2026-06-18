@@ -7,9 +7,13 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: prakashtm456
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
       - name: build image
-        run: docker build -t prakashtm456/learn-docker:latest
+        run: docker build -t prakashtm456/learn-docker:latest .
       - name: push image to docker hub
-        run: |
-          docker login -u prakashtm456 -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push prakashtm456/learn-docker:latest
+        run: docker push prakashtm456/learn-docker:latest
