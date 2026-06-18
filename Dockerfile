@@ -8,14 +8,10 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-FROM node:22-alpine
+FROM nginx:alpine
 
-WORKDIR /app
-
-RUN npm install -g serve
-
-COPY --from=builder /app/dist ./dist/Creating_Docker_Images_For_React_App-vite-
+COPY --from=builder /app/dist /usr/share/nginx/html/Creating_Docker_Images_For_React_App-vite-
 
 EXPOSE 5173
 
-CMD ["serve", "-s", "dist", "-l", "5173"]
+CMD ["nginx", "-g", "daemon off;"]
