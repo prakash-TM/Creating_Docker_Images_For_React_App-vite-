@@ -12,16 +12,16 @@ function App() {
           <h1>Learning Docker</h1>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <ul style={{ textAlign: "left", listStylePosition: "outside" }}>
-              <li>Docker and Docker hub setup in local machine</li>
-              <li>Docker image generation and containerization</li>
-              <li>Push and pull from docker hub</li>
+              <li>Docker and Docker hub setup in local machine.</li>
+              <li>Docker image generation and containerization.</li>
+              <li>Push and pull from docker hub.</li>
               <li>
                 Create container, run the image, stop and remove the image in
-                local
+                local.
               </li>
               <li>
                 Automated the Build and Push Docker Images to Docker Hub
-                activity with GitHub Actions
+                activity with GitHub Actions.
               </li>
               <li>
                 Implemented an automated CI/CD pipeline that triggers builds and
