@@ -26,6 +26,8 @@ jobs:
 
       - name: Build React app
         run: npm run build
+        env:
+          VITE_BASE_URL: "/Creating_Docker_Images_For_React_App-vite-/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
