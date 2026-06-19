@@ -14,7 +14,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/your-repo-name/", // replace with your actual repo name
+  base: "/your-repo-name/", // replace with your actual repo name through env
 });
 ```
 
@@ -55,6 +55,8 @@ jobs:
 
       - name: Build React app
         run: npm run build
+        env:
+          VITE_BASE_URL: "/Creating_Docker_Images_For_React_App-vite-/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
