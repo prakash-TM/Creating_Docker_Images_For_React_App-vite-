@@ -166,3 +166,75 @@ ping learn-docker-with-prakashtm456.centralindia.azurecontainer.io
 learn-docker-with-prakashtm456   ✅
 learn-docker                     ❌ likely taken
 ```
+
+# Why We Changed the Azure Deployment Trigger
+
+## Before
+
+```yaml
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+```
+
+## The Problem
+
+All 3 workflows triggered simultaneously on `git push`:
+
+```
+git push
+   ↓
+   ├── deploy-github-pages.yml  → starts immediately
+   ├── build-docker.yml         → starts immediately (building new image...)
+   └── deploy-to-azure.yml      → starts immediately ❌
+                                   pulls OLD image from Docker Hub
+                                   because build isn't done yet!
+```
+
+ACI was deploying the **previous image** from Docker Hub — not the one just built.
+
+---
+
+## After
+
+```yaml
+on:
+  workflow_run:
+    workflows:
+      - "Build and publish the images to Docker Hub"
+    types:
+      - completed
+  workflow_dispatch:
+```
+
+## How It Works Now
+
+```
+git push
+   ↓
+   ├── deploy-github-pages.yml  → runs independently ✅
+   │
+   └── build-docker.yml         → runs first
+              ↓ on success
+         deploy-to-azure.yml    → triggers automatically ✅
+                                   pulls the NEW image guaranteed
+```
+
+## Why `workflow_dispatch` is Still Kept
+
+`workflow_run` only fires automatically after the Docker build. Without `workflow_dispatch`,
+there is no way to manually trigger the Azure deployment from the GitHub Actions UI —
+useful when you want to redeploy without pushing new code.
+
+## The `if` Condition Fix
+
+When manually triggered via `workflow_dispatch`, there is no `workflow_run` event — so the
+success check must be skipped for manual runs:
+
+```yaml
+if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+# manual trigger → skips the check ✅
+# auto trigger   → only deploys if Docker build succeeded ✅
+```
