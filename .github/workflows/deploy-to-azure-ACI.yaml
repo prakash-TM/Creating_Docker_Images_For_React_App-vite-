@@ -1,0 +1,31 @@
+name: Deploy to Azure Container Instances
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name: Log in to Azure
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure Container Instances
+        uses: azure/aci-deploy@v1
+        with:
+          resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
+          dns-name-label: learn-docker-with-prakashtm456
+          image: prakashtm456/learn-docker:react-app-latest
+          name: react-app-container
+          location: centralindia
+          ports: 3000
+          protocol: TCP
