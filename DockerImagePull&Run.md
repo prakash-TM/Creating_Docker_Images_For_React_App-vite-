@@ -25,7 +25,7 @@ docker images
 Create a container from the image and run it in the background.
 
 ```bash
-docker run -d -p 3000:5173 --name react-app prakashtm456/learn-docker:day2_react_app_docker_image_push
+docker run -d -p 3000:80 --name react-app prakashtm456/learn-docker:day2_react_app_docker_image_push
 ```
 
 ### Command Breakdown
@@ -34,7 +34,7 @@ docker run -d -p 3000:5173 --name react-app prakashtm456/learn-docker:day2_react
 | ------------------ | ----------------------------------------- |
 | `docker run`       | Create and start a container              |
 | `-d`               | Run in background (detached mode)         |
-| `-p 3000:5173`     | Map host port 3000 to container port 5173 |
+| `-p 3000:80`     | Map host port 3000 to container port 80 |
 | `--name react-app` | Give the container a custom name          |
 
 Open the application:

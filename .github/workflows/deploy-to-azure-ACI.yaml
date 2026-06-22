@@ -30,5 +30,6 @@ jobs:
           image: prakashtm456/learn-docker:react-app-latest
           name: react-app-container
           location: centralindia
-          ports: 3000
+          ports: 80
+          # to avoid the port number the aci url, updated the docker file and workflow - http://learn-docker-with-prakashtm456.centralindia.azurecontainer.io:3000
           protocol: TCP

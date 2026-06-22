@@ -9,5 +9,7 @@ FROM node:22-alpine
 RUN npm install -g serve
 WORKDIR /app
 COPY --from=builder /app/dist ./dist
-EXPOSE 5173
-CMD ["serve", "-s", "dist", "-l", "5173"]
+EXPOSE 80 
+#changed from 5173 to 80. keep in mind while image pull from docker hub
+CMD ["serve", "-s", "dist", "-l", "80"]
+#changed from 5173 to 80
