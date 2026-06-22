@@ -1,17 +1,17 @@
 name: Deploy to Azure Container Instances
 
 on:
-workflow_dispatch:
-workflow_run:
-  workflows:
-    - "Build and publish the images to Docker Hub"
-    #   ↑ must match EXACTLY the name: field in build-docker.yml
-  types:
-    - completed
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - "Build and publish the images to Docker Hub"
+    types:
+      - completed
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
 
     steps:
       - name: Checkout
@@ -23,7 +23,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Deploy to Azure Container Instances
-        uses: azure/aci-deploy@v1
+        uses: azure/aci-deploy@v2
         with:
           resource-group: ${{ secrets.AZURE_RESOURCE_GROUP }}
           dns-name-label: learn-docker-with-prakashtm456
