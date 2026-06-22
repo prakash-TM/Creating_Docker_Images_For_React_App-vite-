@@ -9,7 +9,10 @@ function App() {
           <img src={heroImg} className="base" width="170" height="179" alt="" />
         </div>
         <div>
-          <h1>Learning Docker</h1>
+          <h1>
+            Learning Docker
+            <span className="subtitle">with Prakash TM</span>
+          </h1>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <ul style={{ textAlign: "left", listStylePosition: "outside" }}>
               <li>Docker and Docker hub setup in local machine.</li>
@@ -20,13 +23,25 @@ function App() {
                 local.
               </li>
               <li>
-                Automated the Build and Push Docker Images to Docker Hub
-                activity with GitHub Actions.
+                Implemented an automated CI/CD pipeline that triggers the Docker
+                Image Build and Push the Image to Docker Hub whenever code
+                changes are pushed to the main/source branch.
               </li>
               <li>
                 Implemented an automated CI/CD pipeline that triggers builds and
-                deployments to Github pages whenever code changes are pushed to
-                the main/source branch.
+                deploy to Github pages whenever code changes are pushed to the
+                main/source branch.
+              </li>
+              <li>Azure account and CLI setup</li>
+              <li>
+                Implemented an automated CI/CD pipeline that triggers builds and
+                deploy to Azure Container Instances (ACI) service whenever code
+                changes are pushed to the main/source branch.
+              </li>
+              <li>
+                Implemented an automated CI/CD pipeline that triggers builds and
+                deploy to Azure Container Registry (ACR) service and App service
+                whenever code changes are pushed to the main/source branch.
               </li>
             </ul>
           </div>
