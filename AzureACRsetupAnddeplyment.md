@@ -2,7 +2,7 @@
 
 yaml file - .github/workflows/deploy-app-to-azure-ACR.yaml
 
-App url - http://react-app-docker-practice.azurewebsites.net/
+App url - https://react-app-docker-practice.azurewebsites.net/
 
 ## Architecture
 
