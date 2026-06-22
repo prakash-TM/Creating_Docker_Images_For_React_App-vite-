@@ -1,5 +1,9 @@
 # Azure Container Instances Deployment
 
+yaml file - .github/workflows/deploy-app-to-azure-ACI.yaml
+
+App url - http://learn-docker-with-prakashtm456.centralindia.azurecontainer.io/
+
 ## Overview
 
 ```

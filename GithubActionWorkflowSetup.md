@@ -5,6 +5,7 @@ This guide explains how to automatically build and push a Docker image to Docker
 ## Reference
 
 Video Tutorial:
+https://youtu.be/pTFZFxd4hOI?si=Sc40FGLJ0NkpV6mJ
 https://youtu.be/x7f9x30W_dI?si=McffLNKBcyj85yqY
 
 ---

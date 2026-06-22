@@ -2,6 +2,10 @@
 
 A guide to automatically build and deploy a Vite React app to GitHub Pages using GitHub Actions.
 
+yaml file - .github/workflows/deploy-app-to-git-pages.yaml
+
+App url - https://prakash-tm.github.io/Creating_Docker_Images_For_React_App-vite-/
+
 ---
 
 ## Step 1 — Update `vite.config.ts`
