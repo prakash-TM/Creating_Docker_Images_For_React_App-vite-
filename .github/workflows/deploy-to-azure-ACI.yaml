@@ -1,13 +1,13 @@
 name: Deploy to Azure Container Instances
 
 on:
+workflow_dispatch:
 workflow_run:
   workflows:
     - "Build and publish the images to Docker Hub"
     #   ↑ must match EXACTLY the name: field in build-docker.yml
   types:
     - completed
-workflow_dispatch: 
 
 jobs:
   deploy:

@@ -201,12 +201,12 @@ ACI was deploying the **previous image** from Docker Hub — not the one just bu
 
 ```yaml
 on:
+  workflow_dispatch:
   workflow_run:
     workflows:
       - "Build and publish the images to Docker Hub"
     types:
       - completed
-  workflow_dispatch:
 ```
 
 ## How It Works Now
